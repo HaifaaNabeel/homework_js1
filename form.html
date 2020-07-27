@@ -24,45 +24,45 @@
         <div class="container-fluid ">
             <div class="row">
                 <div class="col-lg-3  mb-3" style="padding: 25px; margin:30px">
-                    <form action="/action_page.php" class="was-validated ">
+                    <form action="/action_page.php" class="was-validated " id="form_id">
                         <div class="form-group ">
                             <label for="uname">Name:</label>
                             <input type="text" class="form-control " id="uname" placeholder="" name="uname" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">The name filed is required.</div>
+                            <div class="valid-feedback" id="valid_feedbackN" >Valid.</div>
+                            <div class="invalid-feedback" id="invalid_feedbackN">The name filed is required.</div>
                         </div>
                         <div class="form-group">
                             <label for="uemail">Email:</label>
                             <input type="email" class="form-control" id="uemail" placeholder="" name="uname" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">The Email filed is required.</div>
+                            <div class="valid-feedback" id="valid_feedbackE">Valid.</div>
+                            <div class="invalid-feedback" id="invalid_feedbackE">The Email filed is required.</div>
                         </div>
                         <div class="form-group">
                             <label for="dateb">Date of birth:</label>
                             <input type="date" class="form-control" id="dateb" placeholder="" name="uname" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">The birth date filed is required.</div>
+                            <div class="valid-feedback" id="valid_feedbackB">Valid.</div>
+                            <div class="invalid-feedback" id="invalid_feedbackB">The birth date filed is required.</div>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="" name="pswd" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">The Password filed is required.</div>
+                            <input type="password" class="form-control" id="pwd" placeholder="" name="pwd" required>
+                            <div class="valid-feedback" id="valid_feedbackP"> </div>
+                            <div class="invalid-feedback" id="invalid_feedbackP"> </div>
                         </div>
                         <div class="form-group">
                             <label for="Co_pwd">Confirm Password:</label>
                             <input type="password" class="form-control" id="Co_pwd" placeholder="" name="co_pswd"
                                 required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">The Confirm Password filed is required.</div>
+                            <div class="valid-feedback" id="valid_feedbackCP">Valid.</div>
+                            <div class="invalid-feedback" id="invalid_feedbackCP">The Confirm Password filed is required.</div>
                         </div>
                         <div class="form-group">
                             <label for="url">Website :</label>
                             <input type="url" class="form-control" id="url" placeholder="" name="pswd" required>
-                            <div class="valid-feedback">Valid.</div>
-                            <div class="invalid-feedback">The Url filed is required.</div>
+                            <div class="valid-feedback"id="valid_feedbackU">Valid.</div>
+                            <div class="invalid-feedback"id="invalid_feedbackU">The Url filed is required.</div>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="background-color: green;">Submit</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: green;" id="SubmitId">Submit</button>
 
 
                     </form>
@@ -74,6 +74,36 @@
         </div>
     </footer>
     <script>
+var formElements=document.getElementById("form_id");
+var pwd=document.getElementById("pwd");
+var Pvalid_feedback=document.getElementById("valid_feedbackP");
+var Pin_valid_feedback=document.getElementById("invalid_feedbackP");
+var SubmitId=document.getElementById("SubmitId");
+var lowerCaseLetters = /[a-z]/g;
+var upperCaseLetters = /[A-Z]/g;
+var numbers = /[0-9]/g;
+var specialChars = "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?`~";
+SubmitId.addEventListener("click",function(e){
+    e.preventDefault.SubmitId();
+    if(pwd.value.match(lowerCaseLetters)) {
+        Pvalid_feedback.innerHTML="<div class=valid-feedback id=valid_feedbackP>Valid.</div>"
+  }
+  else if(pwd.value.match(upperCaseLetters)){
+    Pvalid_feedback.innerHTML="<div class=valid-feedback id=valid_feedbackP>Valid.</div>"
+
+  }
+  else if(pwd.value.match(numbers)){
+    Pvalid_feedback.innerHTML="<div class=valid-feedback id=valid_feedbackP>Valid.</div>"
+
+  }
+  else if(pwd.value.match(specialChars)){
+    Pvalid_feedback.innerHTML="<div class=valid-feedback id=valid_feedbackP>Valid.</div>"
+
+  }
+   else {
+    Pvalid_feedback.innerHTML="<div class=valid-feedback id=in_valid_feedbackP>Valid.</div>"
+  }
+});
 
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
